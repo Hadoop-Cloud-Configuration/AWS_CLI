@@ -17,13 +17,19 @@ func main() {
 	flag.Parse()
 	args:=flag.Args();
 	if args[0]=="create"{
+		id:="ami-1624987f"
+		region:="us-east-1"
+		instanceType:="t1.micro"
+		createAWSInstance(region,id,instanceType)
 		
 	}else if args[0]=="list"{
-		
+		// region:="us-east-1"
 	}else if args[0]=="ip"{
 		
 	}else if args[0]=="stop"{
-		
+		region:="us-east-1"
+		instanceId:="i-c93d361e"
+		stopAWSInstance(region,instanceId)
 	}
 	
 }

@@ -27,9 +27,9 @@ func describe(Inputregion string){
 
 }
 
-func createAWSInstance(Inputregion string, ImageId string, InstanceType string) (interface{}){
+func createAWSInstance(region string, ImageId string, InstanceType string) (interface{}){
 
-	svc := ec2.New(&aws.Config{Region: aws.String(Inputregion)})
+	svc := ec2.New(&aws.Config{Region: aws.String(region)})
 
 	params := &ec2.RunInstancesInput{
     	ImageId:      aws.String(ImageId),
@@ -71,12 +71,5 @@ func stopAWSInstance(Inputregion string,InstanceId string){
 
 	// Pretty-print the response data.
 	fmt.Println(resp)
-}
-
-func main(){
-	describe("us-east-1")
-	//result :=createAWSInstance("us-east-1","ami-1624987f","t1.micro")
-	//fmt.Println(result)
-	stopAWSInstance("us-east-1","i-747c31a1")
 }
 
