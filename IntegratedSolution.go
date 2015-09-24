@@ -27,7 +27,7 @@ func describe(Inputregion string){
 
 }
 
-func createAWSInstance(region string, ImageId string, InstanceType string) (interface{}){
+func createAWSInstance(region string, ImageId string, InstanceType string, keyName string) (interface{}){
 
 	svc := ec2.New(&aws.Config{Region: aws.String(region)})
 
@@ -36,6 +36,7 @@ func createAWSInstance(region string, ImageId string, InstanceType string) (inte
     	InstanceType: aws.String(InstanceType),
     	MinCount:     aws.Int64(1),
     	MaxCount:     aws.Int64(1),
+	KeyName:      aws.String(keyName),
 	}
 
 	runResult, err := svc.RunInstances(params)

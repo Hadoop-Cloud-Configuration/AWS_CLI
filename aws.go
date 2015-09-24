@@ -17,10 +17,11 @@ func main() {
 	flag.Parse()
 	args:=flag.Args();
 	if args[0]=="create"{
-		id:="ami-1624987f"
+		id:="ami-d05e75b8"
 		region:="us-east-1"
-		instanceType:="t1.micro"
-		createAWSInstance(region,id,instanceType)
+		instanceType:="t2.micro"
+		keyName:="liang"
+		createAWSInstance(region,id,instanceType,keyName)
 		
 	}else if args[0]=="list"{
 		// region:="us-east-1"
