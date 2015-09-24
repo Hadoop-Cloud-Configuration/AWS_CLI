@@ -20,7 +20,7 @@ func main() {
 		id:="ami-d05e75b8"
 		region:="us-east-1"
 		instanceType:="t2.micro"
-		keyName:="liang"
+		keyName:="jesse"
 		createAWSInstance(region,id,instanceType,keyName)
 		
 	}else if args[0]=="list"{
