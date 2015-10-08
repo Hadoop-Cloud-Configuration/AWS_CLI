@@ -1,0 +1,4 @@
+docker logs -f <container_id>
+docker exec -it <container_id> bash
+exit
+docker commit <container_id> <name>

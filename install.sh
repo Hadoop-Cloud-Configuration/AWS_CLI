@@ -8,6 +8,5 @@ docker pull sequenceiq/ambari:1.7.0
 ##Server Node
 docker run -d --dns 127.0.0.1 -p 8080:8080 --entrypoint /usr/local/serf/bin/start-serf-agent.sh -e KEYCHAIN= --name amb0 -h amb0.mycorp.kom sequenceiq/ambari:1.7.0 --tag ambari-server=true 
 ##Client Node
-docker run -d -e SERF_JOIN_IP=172.17.0.6  --dns 127.0.0.1 --entrypoint /usr/local/serf/bin/start-serf-agent.sh -e KEYCHAIN= --name amb2 -h amb2.mycorp.kom sequenceiq/ambari:1.7.0 --log-level debug
 
-
+docker run -d -e SERF_JOIN_IP=172.17.0.6 -p 7373:7373 -p 7346:7346 --dns 127.0.0.1 --entrypoint /usr/local/serf/bin/start-serf-agent.sh -e KEYCHAIN= --name amb2 -h amb2.mycorp.kom sequenceiq/ambari:1.7.0 --log-level debug
