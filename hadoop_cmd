@@ -4,6 +4,17 @@ jps
 2. Run pi example:
 hadoop jar hadoop-examples-1.2.1.jar pi 10 1000000
 
+groupadd hdfs
+usermod -a -G hdfs root
+hadoop fs -chmod 777 /user 
+
+add in conf/hdfs-site.xml
+
+  <property>
+    <name>dfs.permissions</name>
+    <value>false</value>
+  </property>
+
 3.check hadoop version:
 hadoop version
 
