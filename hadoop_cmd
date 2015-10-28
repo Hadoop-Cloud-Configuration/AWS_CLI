@@ -8,6 +8,12 @@ groupadd hdfs
 usermod -a -G hdfs root
 hadoop fs -chmod 777 /user 
 
+
+# one solution
+sudo -i enter root
+
+find . -name "hdfs-site.xml"
+
 add in conf/hdfs-site.xml
 
   <property>
