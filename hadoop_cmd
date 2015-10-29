@@ -54,6 +54,7 @@ hadoop dfs -ls dft-output
 
 hadoop dfs -cat dft-output/part-00000 | less
 
+hdfs dfs -ls
 
 If we wanted to copy the output file to our local storage (remember, the output is automatically created in the HDFS world, and we have to copy the data from there to our file system to work on it):
 
