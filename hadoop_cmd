@@ -23,6 +23,9 @@ yarn jar hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar teragen 1000 output
 
 yarn jar hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar pi 10 1000
 
+yarn jar hadoop-mapreduce-examples-2.6.0.2.2.8.0-3150.jar pi 10 1000
+
+
 hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar
 
 su hdfs
