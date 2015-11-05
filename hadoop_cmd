@@ -36,6 +36,9 @@ add in conf/hdfs-site.xml
 
 examples directory: /usr/hdp/2.3.2.0-2950/hadoop-mapreduce
 
+/usr/hdp/2.2.8.0-3150/hadoop-mapreduce
+
+
 3.check hadoop version:
 hadoop version
 
