@@ -13,6 +13,10 @@ usermod -a -G hdfs root
 hadoop fs -chmod 777 /user 
 
 
+ambari-server setup
+
+ambari-server start
+
 # one solution
 sudo -i enter root
 
