@@ -47,7 +47,29 @@ func createAWSInstance(region string, ImageId string, InstanceType string, keyNa
 	fmt.Println(runResult)
 	return runResult
 }
+func startAWSInstance(Inputregion string,InstanceId string){
+	svc := ec2.New(&aws.Config{Region: aws.String(Inputregion)})
 
+	params := &ec2.StartInstancesInput{
+		InstanceIds: []*string{ // Required
+			aws.String(InstanceId), // Required
+			// More values...
+		},
+		// AdditionalInfo: aws.String("String"),
+		DryRun:         aws.Bool(false),
+	}
+	resp, err := svc.StartInstances(params)
+
+	if err != nil {
+		// Print the error, cast err to awserr.Error to get the Code and
+		// Message from an error.
+		fmt.Println(err.Error())
+		return
+	}
+
+	// Pretty-print the response data.
+	fmt.Println(resp)
+}
 func stopAWSInstance(Inputregion string,InstanceId string){
 
 	svc := ec2.New(&aws.Config{Region: aws.String(Inputregion)})

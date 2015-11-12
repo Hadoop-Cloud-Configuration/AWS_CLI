@@ -34,6 +34,10 @@ func main() {
 		region:="us-east-1"
 		// instanceId:="i-c93d361e"
 		stopAWSInstance(region,instance)
+	}else if args[0]=="start"{
+		region:="us-east-1"
+		// instanceId:="i-c93d361e"
+		startAWSInstance(region,instance)
 	}
 	
 }
