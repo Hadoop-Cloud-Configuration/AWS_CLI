@@ -2,11 +2,37 @@
 jps
 
 2. Run pi example:
+
+Enter hadoop user: su hdfs
+
+
 hadoop jar hadoop-examples-1.2.1.jar pi 10 1000000
 
 groupadd hdfs
 usermod -a -G hdfs root
 hadoop fs -chmod 777 /user 
+
+
+ambari-server setup
+
+ambari-server start
+
+# one solution
+sudo -i enter root
+
+find . -name "hdfs-site.xml"
+
+
+yarn jar hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar teragen 1000 output
+
+yarn jar hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar pi 10 1000
+
+yarn jar hadoop-mapreduce-examples-2.6.0.2.2.8.0-3150.jar pi 10 1000
+
+
+hadoop-mapreduce-examples-2.7.1.2.3.2.0-2950.jar
+
+su hdfs
 
 add in conf/hdfs-site.xml
 
@@ -14,6 +40,11 @@ add in conf/hdfs-site.xml
     <name>dfs.permissions</name>
     <value>false</value>
   </property>
+
+examples directory: /usr/hdp/2.3.2.0-2950/hadoop-mapreduce
+
+/usr/hdp/2.2.8.0-3150/hadoop-mapreduce
+
 
 3.check hadoop version:
 hadoop version
@@ -33,6 +64,7 @@ hadoop dfs -ls dft-output
 
 hadoop dfs -cat dft-output/part-00000 | less
 
+hdfs dfs -ls
 
 If we wanted to copy the output file to our local storage (remember, the output is automatically created in the HDFS world, and we have to copy the data from there to our file system to work on it):
 
