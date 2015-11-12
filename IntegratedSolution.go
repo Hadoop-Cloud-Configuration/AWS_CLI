@@ -44,7 +44,6 @@ func createAWSInstance(region string, ImageId string, InstanceType string, keyNa
     		log.Println("Could not create instance", err)
     		return err
 	}
-
 	fmt.Println(runResult)
 	return runResult
 }

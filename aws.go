@@ -2,35 +2,38 @@
 package main
 import (
 	"fmt"
-	// "os"
+	"os"
 	"flag"
 )
 func main() {
-	flag.Usage = func() {
+	var id string
+	var instancetype string
+	var instance string
+	var key string
+	flagSet := flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+	flagSet.StringVar(&id, "id", "ami-1df0ac78", "Image ID")
+	flagSet.StringVar(&instancetype, "type", "t2.micro", "instancetype")
+	flagSet.StringVar(&key, "key", "", "key name")
+	flagSet.StringVar(&instance, "instance", "", "Instance Id")
+	flagSet.Usage = func() {
 	    fmt.Printf("\nUsage: ./aws [options]\n\n")
-		
 		fmt.Printf("\t aws create\n")
-		fmt.Printf("\t aws list\n")
-		fmt.Printf("\t aws stop\n")
+		fmt.Printf("\t aws create -id <ami-1df0ac78> -type <t2.micro> -key <keyname>\n")
+		fmt.Printf("\t aws stop -instance <instance_id>\n")
 		// flag.PrintDefaults()
 	}
-	flag.Parse()
-	args:=flag.Args();
+	flagSet.Parse(os.Args[2:])
+	args:=os.Args[1:]
 	if args[0]=="create"{
-		id:="ami-d05e75b8"
+		// id:="ami-1df0ac78"
 		region:="us-east-1"
-		instanceType:="t2.micro"
-		keyName:="jesse"
-		createAWSInstance(region,id,instanceType,keyName)
-		
-	}else if args[0]=="list"{
-		// region:="us-east-1"
-	}else if args[0]=="ip"{
-		
+// 		instanceType:="t2.micro"
+// 		keyName:="jesse"
+		createAWSInstance(region,id,instancetype,key)
 	}else if args[0]=="stop"{
 		region:="us-east-1"
-		instanceId:="i-c93d361e"
-		stopAWSInstance(region,instanceId)
+		// instanceId:="i-c93d361e"
+		stopAWSInstance(region,instance)
 	}
 	
 }
