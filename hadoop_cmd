@@ -73,3 +73,7 @@ cd ~/352/dft
 hadoop dfs -copyToLocal dft-output/part-00000 . hadoop@hadoop1:~/352/dft$ ls  4300.txt part-00000 
 
 hadoop dfs -rmr dft-output 
+
+
+
+[Hadoop terasort](https://support.pivotal.io/hc/en-us/articles/200927666-Running-TeraSort-MapReduce-Benchmark)
