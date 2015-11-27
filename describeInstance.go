@@ -18,15 +18,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
+	var dnsName []string
+	var ips []string
 	// resp has all of the response data, pull out instance IDs:
 	fmt.Println("> Number of reservation sets: ", len(resp.Reservations))
 	for idx, _ := range resp.Reservations {
 		// fmt.Println("  > Number of instances: ", len(res.Instances))
 		for _, inst := range resp.Reservations[idx].Instances {
 
-			// dnsName = append(dnsName, *inst.NetworkInterfaces[0].PrivateDnsName)
-			// ips = append(ips, *inst.NetworkInterfaces[0].Association.PublicIp)
+			dnsName = append(dnsName, *inst.NetworkInterfaces[0].PrivateDnsName)
+			ips = append(ips, *inst.NetworkInterfaces[0].Association.PublicIp)
 			// fmt.Println("    - Instance ID: ", *inst)
 			// if len(*inst.Tags) == 0 {
 			// 	continue
@@ -34,11 +35,11 @@ func main() {
 			fmt.Printf("    - Instance ID: %s DNS: %s IP: %s \n", *inst.Tags[0].Value, *inst.NetworkInterfaces[0].PrivateDnsName, *inst.NetworkInterfaces[0].Association.PublicIp)
 		}
 	}
-	// for _, x := range dnsName {
-	// 	fmt.Println(x)
-	// }
-	// for _, x := range ips {
-	// 	fmt.Println(x)
-	// }
+	for _, x := range dnsName {
+		fmt.Println(x)
+	}
+	for _, x := range ips {
+		fmt.Println(x)
+	}
 
 }
